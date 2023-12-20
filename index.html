@@ -27,7 +27,7 @@
       <h3 class="app_head">the book shelf</h3>
     </br>
       <ul>
-        <li v-for="(item,index) in bookList" class="app_li">
+        <li v-for="(item,index) in bookList" class="app_li" :key="item.id">
           <span>{{item.name}}</span>
           <span>{{item.author}}</span>
           <button @click="del(item.id)">删除</button>
