@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyPracticeOnVue</title>
+    <style>
+      body {
+        #app {
+          display: flex;
+          .app_head {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .app_li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h3 class="app_head">the food</h3>
+    </br>
+      <ul>
+        <li v-for="(item,index) in list" class="app_li">{{item}}</li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script>
+      app = new Vue({
+        el: "#app",
+        data: {
+          list: ["apple", "banana", "carrot"],
+        },
+      });
+    </script>
+  </body>
+</html>
