@@ -24,10 +24,14 @@
   </head>
   <body>
     <div id="app">
-      <h3 class="app_head">the food</h3>
+      <h3 class="app_head">the book shelf</h3>
     </br>
       <ul>
-        <li v-for="(item,index) in list" class="app_li">{{item}}</li>
+        <li v-for="(item,index) in bookList" class="app_li">
+          <span>{{item.name}}</span>
+          <span>{{item.author}}</span>
+          <button @click="del(item.id)">删除</button>
+        </li>
       </ul>
     </div>
 
@@ -36,7 +40,17 @@
       app = new Vue({
         el: "#app",
         data: {
-          list: ["apple", "banana", "carrot"],
+          bookList:[
+            {id:1,name:'《西游记》',author:'吴承恩'},
+            {id:2,name:'《红楼梦》',author:'曹雪芹'},
+            {id:3,name:'《水浒传》',author:'施耐庵'},
+            {id:4,name:'《三国演义》',author:'罗贯中'}
+          ]
+        },
+        methods: {
+          del(id){
+            this.bookList = this.bookList.filter(item=>item.id!=id)
+          }
         },
       });
     </script>
